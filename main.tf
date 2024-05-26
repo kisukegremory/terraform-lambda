@@ -25,10 +25,10 @@ module "iam_lambda" {
   tags = local.commom_tags
 }
 
-# module "lambda_vanilla" {
-#   source      = "./modules/lambda_vanilla"
-#   source_file = "${local.code_source}/lambda_vanilla/main.py"
-#   output_path = "${local.artifact_source}/${local.project_name}-vanilla.zip"
-#   role_arn    = module.iam_lambda.role_arn
-#   tags = local.commom_tags
-# }
+module "lambda_vanilla" {
+  source      = "./modules/lambda_vanilla"
+  source_file = "${local.code_source}/lambda_vanilla/main.py"
+  output_path = "${local.artifact_source}/${local.project_name}-vanilla.zip"
+  role_arn    = module.iam_lambda.role_arn
+  tags = local.commom_tags
+}
