@@ -18,11 +18,12 @@ module "s3_input_data" {
 }
 
 
-# module "iam_lambda" {
-#   source        = "./modules/iam_lambda"
-#   project_name  = local.project_name
-#   s3_bucket_arn = module.s3_input_data.bucket_arn
-# }
+module "iam_lambda" {
+  source        = "./modules/iam_lambda"
+  project_name  = local.project_name
+  s3_bucket_arn = module.s3_input_data.bucket_arn
+  tags = local.commom_tags
+}
 
 # module "lambda_vanilla" {
 #   source      = "./modules/lambda_vanilla"
